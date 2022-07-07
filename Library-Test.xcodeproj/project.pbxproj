@@ -24,6 +24,7 @@
 		CEAED5162877199300B4B3EC /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED5152877199300B4B3EC /* CustomCalendarView.swift */; };
 		CEAED519287730CF00B4B3EC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CEAED518287730CF00B4B3EC /* Then */; };
 		CEAED51C287733D500B4B3EC /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */; };
+		CEAED51F28773ED200B4B3EC /* CalendarHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED51E28773ED200B4B3EC /* CalendarHelper.swift */; };
 		CEF39CAC2876C06900162E67 /* CustomViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39CAB2876C06900162E67 /* CustomViewPager.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInjectionTestView.swift; sourceTree = "<group>"; };
 		CEAED5152877199300B4B3EC /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
 		CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		CEAED51E28773ED200B4B3EC /* CalendarHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHelper.swift; sourceTree = "<group>"; };
 		CEF39CAB2876C06900162E67 /* CustomViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewPager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +99,7 @@
 		CE704A7C28756D1000240380 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				CEAED51D28773EC400B4B3EC /* Models */,
 				CEF39CAA2876C01F00162E67 /* Views */,
 				CE704A8428757B0000240380 /* ViewPagerViews */,
 				CE704A7D28756D2300240380 /* HomeController.swift */,
@@ -121,6 +124,14 @@
 				CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		CEAED51D28773EC400B4B3EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CEAED51E28773ED200B4B3EC /* CalendarHelper.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		CEF39CAA2876C01F00162E67 /* Views */ = {
@@ -223,6 +234,7 @@
 				CE704A8028756D3600240380 /* CalendarController.swift in Sources */,
 				CE704A8628757B2600240380 /* FirstViewController.swift in Sources */,
 				CEAED5122876D33A00B4B3EC /* ActionInjectionTestView.swift in Sources */,
+				CEAED51F28773ED200B4B3EC /* CalendarHelper.swift in Sources */,
 				CE704A8828757B3700240380 /* SecondViewController.swift in Sources */,
 				CE704A6928756B1600240380 /* AppDelegate.swift in Sources */,
 				CEF39CAC2876C06900162E67 /* CustomViewPager.swift in Sources */,
