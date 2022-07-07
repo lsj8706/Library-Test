@@ -6,14 +6,121 @@
 //
 
 import UIKit
+import Tabman
+import Pageboy
+import SnapKit
 
 class HomeController: UIViewController {
-
+    
+    var viewControllers: [UIViewController] = [FirstViewController(), SecondViewController(), ThirdViewController()]
+    let secondVC = SecondViewController()
+    
+    // Custom View Pager UI
+    private lazy var customViewPager = CustomViewPager(viewControllers: [FirstViewController(), secondVC, ThirdViewController()])
+    
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    private let blankView1 = UIView()
+    private let blankView2 = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        secondVC.delegate = self
+        configureScrollView()
     }
     
+    func configureScrollView() {
+        view.addSubview(scrollView)
+        //configureGradientLayer()
+        view.backgroundColor = .gray
+        scrollView.addSubview(contentView)
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        contentView.snp.makeConstraints { make in
+            make.edges.equalTo(scrollView.contentLayoutGuide)
+            make.width.equalTo(scrollView.snp.width)
+            make.height.greaterThanOrEqualTo(scrollView.snp.height).priority(250)
+        }
+        
+        
+        contentView.addSubview(customViewPager)
+        customViewPager.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(50)
+            make.leading.equalToSuperview().offset(10)
+            make.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(200)
+        }
+        
+        contentView.addSubview(blankView1)
+        blankView1.backgroundColor = .green
+        blankView1.snp.makeConstraints { make in
+            make.top.equalTo(customViewPager.snp.bottom).offset(100)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(400)
+        }
+        
+        contentView.addSubview(blankView2)
+        blankView2.backgroundColor = .red
+        blankView2.snp.makeConstraints { make in
+            make.top.equalTo(blankView1.snp.bottom).offset(100)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(400)
+            make.bottom.equalToSuperview()
+        }
+        
+    }
+    
+    // 배경색 그라데이션으로 만들기
+    func configureGradientLayer() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.black.cgColor]
+        gradient.locations = [0, 0.3]
+        gradient.startPoint = CGPoint(x: 1, y: 0)
+        scrollView.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+    }
+}
 
+extension HomeController: SecondViewControllerDelegate {
+    func presentImagePicker() {
+
+        let imagPickUp = UIImagePickerController()
+        
+        let ActionSheet = UIAlertController(title: nil, message: "Select Photo", preferredStyle: .actionSheet)
+
+        let cameraPhoto = UIAlertAction(title: "Camera", style: .default, handler: {
+            (alert: UIAlertAction) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera){
+                
+                imagPickUp.mediaTypes = ["public.image"]
+                imagPickUp.sourceType = UIImagePickerController.SourceType.camera;
+                self.present(imagPickUp, animated: true, completion: nil)
+            }
+            else{
+                UIAlertController(title: "iOSDevCenter", message: "No Camera available.", preferredStyle: .alert).show(self, sender: nil);
+            }
+            
+        })
+        
+        let PhotoLibrary = UIAlertAction(title: "Photo Library", style: .default, handler: {
+            (alert: UIAlertAction) -> Void in
+            if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
+                imagPickUp.mediaTypes = ["public.image"]
+                imagPickUp.sourceType = UIImagePickerController.SourceType.photoLibrary;
+                self.present(imagPickUp, animated: true, completion: nil)
+            }
+            
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
+            (alert: UIAlertAction) -> Void in
+            
+        })
+        
+        ActionSheet.addAction(cameraPhoto)
+        ActionSheet.addAction(PhotoLibrary)
+        ActionSheet.addAction(cancelAction)
+        self.present(ActionSheet, animated: true)
+    }
 }
