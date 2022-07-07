@@ -15,7 +15,7 @@ class SecondViewController: UIViewController {
 
     weak var delegate: SecondViewControllerDelegate?
     
-    private let imagePickButton: UIButton = {
+    private lazy var imagePickButton: UIButton = {
         let btn = UIButton()
         btn.setTitle("이미지 골라~!", for: .normal)
         btn.setTitleColor(UIColor.black, for: .normal)
