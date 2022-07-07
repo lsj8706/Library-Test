@@ -20,7 +20,9 @@ class HomeController: UIViewController {
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()
-    private let blankView1 = UIView()
+    private let blankView1 = ActionInjectionTestView {
+        print("프린트는 찍히네")
+    }
     private let blankView2 = UIView()
     
     override func viewDidLoad() {
@@ -40,7 +42,7 @@ class HomeController: UIViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalTo(scrollView.contentLayoutGuide)
             make.width.equalTo(scrollView.snp.width)
-            make.height.greaterThanOrEqualTo(scrollView.snp.height).priority(250)
+            make.height.greaterThanOrEqualTo(scrollView.snp.height).priority(500)
         }
         
         
@@ -53,7 +55,7 @@ class HomeController: UIViewController {
         }
         
         contentView.addSubview(blankView1)
-        blankView1.backgroundColor = .green
+
         blankView1.snp.makeConstraints { make in
             make.top.equalTo(customViewPager.snp.bottom).offset(100)
             make.leading.trailing.equalToSuperview().inset(10)
@@ -61,7 +63,7 @@ class HomeController: UIViewController {
         }
         
         contentView.addSubview(blankView2)
-        blankView2.backgroundColor = .red
+        blankView2.backgroundColor = .green
         blankView2.snp.makeConstraints { make in
             make.top.equalTo(blankView1.snp.bottom).offset(100)
             make.leading.trailing.equalToSuperview().inset(10)

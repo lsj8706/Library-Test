@@ -24,9 +24,16 @@ class TabBarController: UITabBarController {
         
         
         viewControllers = [homeVC, calendarVC]
-        tabBar.barTintColor = .black
+//        tabBar.barTintColor = .black
         tabBar.tintColor = .orange
         tabBar.unselectedItemTintColor = .gray
+        
+        // 화면 스크롤을 하면 탭바 배경색이 view.backgroundColor로 바뀌는 문제 해결 코드
+        let appearance = UITabBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .black
+        tabBar.scrollEdgeAppearance = appearance
+        tabBar.standardAppearance = appearance
     }
     
     func templateNavigationController(title: String, unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController) -> UINavigationController {

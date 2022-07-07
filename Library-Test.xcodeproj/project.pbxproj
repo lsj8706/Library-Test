@@ -20,6 +20,7 @@
 		CE704A8828757B3700240380 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE704A8728757B3700240380 /* SecondViewController.swift */; };
 		CE704A8A28757FE300240380 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE704A8928757FE300240380 /* ThirdViewController.swift */; };
 		CE704A8D2875877300240380 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE704A8C2875877300240380 /* SnapKit */; };
+		CEAED5122876D33A00B4B3EC /* ActionInjectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */; };
 		CEF39CAC2876C06900162E67 /* CustomViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39CAB2876C06900162E67 /* CustomViewPager.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		CE704A8928757FE300240380 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		CEAED50F2876CE8500B4B3EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		CEAED5102876CE8500B4B3EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInjectionTestView.swift; sourceTree = "<group>"; };
 		CEF39CAB2876C06900162E67 /* CustomViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewPager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				CEF39CAB2876C06900162E67 /* CustomViewPager.swift */,
+				CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				CE704A6D28756B1600240380 /* TabBarController.swift in Sources */,
 				CE704A8028756D3600240380 /* CalendarController.swift in Sources */,
 				CE704A8628757B2600240380 /* FirstViewController.swift in Sources */,
+				CEAED5122876D33A00B4B3EC /* ActionInjectionTestView.swift in Sources */,
 				CE704A8828757B3700240380 /* SecondViewController.swift in Sources */,
 				CE704A6928756B1600240380 /* AppDelegate.swift in Sources */,
 				CEF39CAC2876C06900162E67 /* CustomViewPager.swift in Sources */,
