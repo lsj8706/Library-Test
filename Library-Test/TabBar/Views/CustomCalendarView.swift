@@ -75,7 +75,7 @@ class CustomCalendarView: UIView {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .gray
+        collectionView.backgroundColor = .blue
         return collectionView
     }()
     
@@ -85,6 +85,7 @@ class CustomCalendarView: UIView {
         backgroundColor = .white
         
         configureUI()
+        setMonthView()
         setCollectionView()
         setDelegate()
     }
@@ -122,6 +123,29 @@ class CustomCalendarView: UIView {
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
     }
+    
+    func setMonthView() {
+        totalSquares.removeAll()
+        
+        let daysInMonth = CalendarHelper.shared.daysInMonth(date: selectedDate)
+        let firstDayOfMonth = CalendarHelper.shared.firstOfMonth(date: selectedDate)
+        let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
+        
+        var count: Int = 1
+        
+        while(count <= 42) {
+            if (count <= startingSpaces || count - startingSpaces > daysInMonth) {
+                totalSquares.append("")
+            }
+            else {
+                totalSquares.append(String(count - startingSpaces))
+            }
+            count += 1
+        }
+        
+        monthLabel.text = CalendarHelper.shared.monthString(date: selectedDate) + " " + CalendarHelper.shared.yearString(date: selectedDate)
+        calendarCollectionView.reloadData()
+    }
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -134,15 +158,18 @@ extension CustomCalendarView: UICollectionViewDelegate, UICollectionViewDataSour
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         
         cell.dayLabel.text = totalSquares[indexPath.item]
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
         return cell
     }
 }
 
 extension CustomCalendarView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.size.width - 2) / 7
-        let height = (collectionView.frame.size.height - 2) / 7
-        
-        return CGSize(width: width, height: height)
+        let width = (collectionView.frame.size.width) / 7
+        //let height = (collectionView.frame.size.height) / 7
+        // 일단 cell 크기를 1대1 비율로 했는데 이러면 콜렉션뷰 하단에 여백 생김
+        return CGSize(width: width, height: width)
     }
 }
+

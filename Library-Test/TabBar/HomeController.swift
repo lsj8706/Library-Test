@@ -25,6 +25,8 @@ class HomeController: UIViewController {
     }
     private let blankView2 = UIView()
     
+    private let calendarView = CustomCalendarView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         secondVC.delegate = self
@@ -68,7 +70,14 @@ class HomeController: UIViewController {
             make.top.equalTo(blankView1.snp.bottom).offset(100)
             make.leading.trailing.equalToSuperview().inset(10)
             make.height.equalTo(400)
-            make.bottom.equalToSuperview()
+        }
+        
+        contentView.addSubview(calendarView)
+        calendarView.snp.makeConstraints { make in
+            make.top.equalTo(blankView2.snp.bottom).offset(100)
+            make.leading.trailing.equalToSuperview().inset(10)
+            make.height.equalTo(400)
+            make.bottom.equalToSuperview().inset(100)
         }
         
     }

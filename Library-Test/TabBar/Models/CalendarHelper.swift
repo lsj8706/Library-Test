@@ -9,6 +9,8 @@ import Foundation
 
 class CalendarHelper {
     
+    static let shared = CalendarHelper()
+    
     let calendar = Calendar.current
     
     /// e.g.) 15 Jan 2022 -> 15 Feb 2022
