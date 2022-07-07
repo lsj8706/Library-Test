@@ -8,10 +8,20 @@
 import UIKit
 
 class CalendarController: UIViewController {
-
+    
+    private let calendarView = CustomCalendarView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        configureUI()
+    }
+    
+    func configureUI() {
+        view.addSubview(calendarView)
+        calendarView.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.trailing.leading.equalToSuperview().inset(20)
+            make.height.equalTo(400)
+        }
     }
 }

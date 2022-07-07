@@ -97,6 +97,7 @@ extension HomeController: SecondViewControllerDelegate {
                 
                 imagPickUp.mediaTypes = ["public.image"]
                 imagPickUp.sourceType = UIImagePickerController.SourceType.camera;
+                imagPickUp.allowsEditing = true
                 self.present(imagPickUp, animated: true, completion: nil)
             }
             else{
@@ -110,6 +111,8 @@ extension HomeController: SecondViewControllerDelegate {
             if UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.photoLibrary){
                 imagPickUp.mediaTypes = ["public.image"]
                 imagPickUp.sourceType = UIImagePickerController.SourceType.photoLibrary;
+                imagPickUp.allowsEditing = true
+                imagPickUp.modalPresentationStyle = .fullScreen
                 self.present(imagPickUp, animated: true, completion: nil)
             }
             

@@ -21,6 +21,9 @@
 		CE704A8A28757FE300240380 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE704A8928757FE300240380 /* ThirdViewController.swift */; };
 		CE704A8D2875877300240380 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CE704A8C2875877300240380 /* SnapKit */; };
 		CEAED5122876D33A00B4B3EC /* ActionInjectionTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */; };
+		CEAED5162877199300B4B3EC /* CustomCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED5152877199300B4B3EC /* CustomCalendarView.swift */; };
+		CEAED519287730CF00B4B3EC /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CEAED518287730CF00B4B3EC /* Then */; };
+		CEAED51C287733D500B4B3EC /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */; };
 		CEF39CAC2876C06900162E67 /* CustomViewPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF39CAB2876C06900162E67 /* CustomViewPager.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,8 @@
 		CEAED50F2876CE8500B4B3EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
 		CEAED5102876CE8500B4B3EC /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionInjectionTestView.swift; sourceTree = "<group>"; };
+		CEAED5152877199300B4B3EC /* CustomCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarView.swift; sourceTree = "<group>"; };
+		CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEF39CAB2876C06900162E67 /* CustomViewPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewPager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -50,6 +55,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE704A8328757AC500240380 /* Tabman in Frameworks */,
+				CEAED519287730CF00B4B3EC /* Then in Frameworks */,
 				CE704A8D2875877300240380 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,11 +115,21 @@
 			path = ViewPagerViews;
 			sourceTree = "<group>";
 		};
+		CEAED51A2877337100B4B3EC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CEAED51B287733D500B4B3EC /* CalendarCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CEF39CAA2876C01F00162E67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CEAED51A2877337100B4B3EC /* Cells */,
 				CEF39CAB2876C06900162E67 /* CustomViewPager.swift */,
 				CEAED5112876D33A00B4B3EC /* ActionInjectionTestView.swift */,
+				CEAED5152877199300B4B3EC /* CustomCalendarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +153,7 @@
 			packageProductDependencies = (
 				CE704A8228757AC500240380 /* Tabman */,
 				CE704A8C2875877300240380 /* SnapKit */,
+				CEAED518287730CF00B4B3EC /* Then */,
 			);
 			productName = "Library-Test";
 			productReference = CE704A6528756B1600240380 /* Library-Test.app */;
@@ -170,6 +187,7 @@
 			packageReferences = (
 				CE704A8128757AC500240380 /* XCRemoteSwiftPackageReference "Tabman" */,
 				CE704A8B2875877300240380 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CEAED517287730CF00B4B3EC /* XCRemoteSwiftPackageReference "Then" */,
 			);
 			productRefGroup = CE704A6628756B1600240380 /* Products */;
 			projectDirPath = "";
@@ -198,6 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEAED51C287733D500B4B3EC /* CalendarCollectionViewCell.swift in Sources */,
+				CEAED5162877199300B4B3EC /* CustomCalendarView.swift in Sources */,
 				CE704A7E28756D2300240380 /* HomeController.swift in Sources */,
 				CE704A6D28756B1600240380 /* TabBarController.swift in Sources */,
 				CE704A8028756D3600240380 /* CalendarController.swift in Sources */,
@@ -447,6 +467,14 @@
 				kind = branch;
 			};
 		};
+		CEAED517287730CF00B4B3EC /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -459,6 +487,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE704A8B2875877300240380 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CEAED518287730CF00B4B3EC /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEAED517287730CF00B4B3EC /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
