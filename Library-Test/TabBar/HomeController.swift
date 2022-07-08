@@ -55,6 +55,8 @@ class HomeController: UIViewController {
             make.trailing.equalToSuperview().inset(10)
             make.height.equalTo(200)
         }
+        //특정 페이지로 바로 가도록 설정
+        //customViewPager.scrollToIndex(indexOf: 2)
         
         contentView.addSubview(blankView1)
 

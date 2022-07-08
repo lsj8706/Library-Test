@@ -55,6 +55,12 @@ final class CustomViewPager: UIView {
         
         // Add to view
         tabMan.addBar(bar, dataSource: self, at: .top)
+        //tabMan.isScrollEnabled = false
+        //tabMan.scrollToPage(.at(index: 0), animated: false)
+    }
+    
+    func scrollToIndex(indexOf: Int) {
+        tabMan.scrollToPage(.at(index: indexOf), animated: false)
     }
 }
 
