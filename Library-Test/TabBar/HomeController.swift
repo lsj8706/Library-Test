@@ -16,7 +16,7 @@ class HomeController: UIViewController {
     let secondVC = SecondViewController()
     
     // Custom View Pager UI
-    private lazy var customViewPager = CustomViewPager(viewControllers: [FirstViewController(), secondVC, ThirdViewController()])
+    private lazy var customViewPager = CustomViewPager(viewControllers: [FirstViewController(), secondVC, ThirdViewController()], buttonTitles: ["1", "2", "3"])
     
     private let scrollView = UIScrollView()
     private let contentView = UIView()

@@ -13,13 +13,15 @@ import SnapKit
 final class CustomViewPager: UIView {
     //MARK: - Properties
     var viewControllers: [UIViewController]
+    var buttonTitles: [String]
     
     //MARK: - UI
     private let tabMan = TabmanViewController()
     
     //MARK: - View Life Cycle
-    init(viewControllers: [UIViewController]) {
+    init(viewControllers: [UIViewController], buttonTitles: [String]) {
         self.viewControllers = viewControllers
+        self.buttonTitles = buttonTitles
         super.init(frame: .zero)
         configureUI()
         setViewPager()
@@ -55,7 +57,7 @@ final class CustomViewPager: UIView {
         
         // Add to view
         tabMan.addBar(bar, dataSource: self, at: .top)
-        //tabMan.isScrollEnabled = false
+        tabMan.isScrollEnabled = false
         //tabMan.scrollToPage(.at(index: 0), animated: false)
     }
     
@@ -78,7 +80,7 @@ extension CustomViewPager: PageboyViewControllerDataSource, TMBarDataSource {
     }
     
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
-        let item = TMBarItem(title: "#Page \(index)")
+        let item = TMBarItem(title: buttonTitles[index])
         return item
     }
 }
