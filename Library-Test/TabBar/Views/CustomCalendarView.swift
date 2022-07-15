@@ -172,4 +172,3 @@ extension CustomCalendarView: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: width)
     }
 }
-

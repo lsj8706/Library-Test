@@ -19,12 +19,15 @@ final class CustomViewPager: UIView {
     private let tabMan = TabmanViewController()
     
     //MARK: - View Life Cycle
-    init(viewControllers: [UIViewController], buttonTitles: [String]) {
+    init(viewControllers: [UIViewController],
+         buttonTitles: [String],
+         barHeight: Int = 40,
+         isScrollEnabled: Bool) {
         self.viewControllers = viewControllers
         self.buttonTitles = buttonTitles
         super.init(frame: .zero)
         configureUI()
-        setViewPager()
+        setViewPager(barHeight: barHeight, isScrollEnabled: isScrollEnabled)
     }
     
     required init?(coder: NSCoder) {
@@ -38,18 +41,18 @@ final class CustomViewPager: UIView {
         tabMan.dataSource = self
     }
     
-    private func setViewPager() {
+    private func setViewPager(barHeight: Int, isScrollEnabled: Bool) {
         // Create bar
         let bar = TMBar.ButtonBar()
-        bar.layout.transitionStyle = .snap // Customize
-        bar.layout.alignment = .centerDistributed // .center시 선택된 탭이 가운데로 오게 됨.
+        bar.layout.transitionStyle = .snap
+        bar.layout.alignment = .centerDistributed
         bar.layout.contentMode = .fit
         bar.layout.interButtonSpacing = 0
         bar.buttons.customize { button in
             button.backgroundColor = .black
             button.tintColor = .white
             button.selectedTintColor = .orange
-            // button.heightAnchor.constraint(equalToConstant: 40).isActive = true
+            button.heightAnchor.constraint(equalToConstant: CGFloat(barHeight)).isActive = true
         }
         
         bar.indicator.tintColor = .orange
@@ -57,8 +60,7 @@ final class CustomViewPager: UIView {
         
         // Add to view
         tabMan.addBar(bar, dataSource: self, at: .top)
-        tabMan.isScrollEnabled = false
-        //tabMan.scrollToPage(.at(index: 0), animated: false)
+        tabMan.isScrollEnabled = isScrollEnabled
     }
     
     func scrollToIndex(indexOf: Int) {

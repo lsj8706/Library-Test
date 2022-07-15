@@ -22,8 +22,10 @@ class TabBarController: UITabBarController {
         
         let calendarVC = templateNavigationController(title: "캘린더", unselectedImage: UIImage(systemName: "calendar")!, selectedImage: UIImage(systemName: "calendar")!, rootViewController: CalendarController())
         
+        let customViewTestVC = templateNavigationController(title: "테스트", unselectedImage: UIImage(systemName: "scribble")!, selectedImage: UIImage(systemName: "scribble")!, rootViewController: CustomViewTestController())
         
-        viewControllers = [homeVC, calendarVC]
+        
+        viewControllers = [homeVC, calendarVC, customViewTestVC]
 //        tabBar.barTintColor = .black
         tabBar.tintColor = .orange
         tabBar.unselectedItemTintColor = .gray
